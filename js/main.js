@@ -7,9 +7,7 @@ const getRandomInteger = (scaleLow, scaleHigh) => {
   return Math.round(Math.random()*(scaleHigh - scaleLow)+scaleLow);
 };
 
-const checkStringLength = (string, length) => {
-  return string.length <= length;
-};
+const checkStringLength = (string, length) => string.length <= length;
 
 getRandomInteger();
 checkStringLength();
