@@ -8,10 +8,7 @@ const getRandomInteger = (scaleLow, scaleHigh) => {
 };
 
 const checkStringLength = (string, length) => {
-  if (string.length > length) {
-    return false;
-  }
-  return true;
+  return string.length <= length;
 };
 
 getRandomInteger();
