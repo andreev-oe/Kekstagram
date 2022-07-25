@@ -11,7 +11,7 @@ import {
   NAMES,
 } from './constants.js';
 
-const createCards = () => {
+const createMiniaturesData = () => {
   const cards = [];
   for (let i = FIRST_ID; i <= AMOUNT_OF_CARDS; i++) {
     const card = {
@@ -31,4 +31,4 @@ const createCards = () => {
   return cards;
 };
 
-export {createCards};
+export {createMiniaturesData};

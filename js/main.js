@@ -1,3 +1,3 @@
-import {createCards} from './modules/test-data/index.js';
+import  './modules/test-data/index.js';
+import './modules/create-miniatures/index.js';
 
-createCards();
