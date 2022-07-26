@@ -7,6 +7,7 @@ const createMiniatures = (miniature) => {
   pictureElement.src = miniature.url;
   pictureLikesElement.textContent = miniature.likes;
   pictureCommentsElement.textContent = miniature.comments.length;
+  pictureElement.dataset.photoId = miniature.id;
   return picturesElement.append(pictureTemplateElement);
 };
 

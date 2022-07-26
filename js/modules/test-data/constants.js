@@ -1,10 +1,9 @@
 const AMOUNT_OF_CARDS = 25;
 const ANY_START_ZERO = 0;
-const FIRST_ID = 1;
 const MIN_LIKES = 15;
 const MAX_LIKES = 200;
-const MIN_AVATAR_ID = 15;
-const MAX_AVATAR_ID = 200;
+const MIN_AVATAR_ID = 1;
+const MAX_AVATAR_ID = 6;
 const MESSAGES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
@@ -31,7 +30,6 @@ const NAMES = [
 export {
   AMOUNT_OF_CARDS,
   ANY_START_ZERO,
-  FIRST_ID,
   MIN_LIKES,
   MAX_LIKES,
   MIN_AVATAR_ID,

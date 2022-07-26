@@ -1,0 +1,9 @@
+const IMAGE_WIDTH = '35';
+const IMAGE_HEIGHT = '35';
+const ARRAY_LENGTH_OFFSET = 1;
+
+export {
+  IMAGE_WIDTH,
+  IMAGE_HEIGHT,
+  ARRAY_LENGTH_OFFSET,
+};
