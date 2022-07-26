@@ -6,7 +6,7 @@ const createMiniatures = (miniature) => {
   const picturesElement = document.querySelector('.pictures');
   pictureElement.src = miniature.url;
   pictureLikesElement.textContent = miniature.likes;
-  pictureCommentsElement.textContent = miniature.comments.message.length;
+  pictureCommentsElement.textContent = miniature.comments.length;
   return picturesElement.append(pictureTemplateElement);
 };
 

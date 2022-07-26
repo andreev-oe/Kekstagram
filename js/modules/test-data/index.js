@@ -11,6 +11,20 @@ import {
   NAMES,
 } from './constants.js';
 
+const createMessages = () => {
+  const messages = [];
+  for(let i = FIRST_ID; i <= getRandomInteger(MIN_AVATAR_ID, MAX_AVATAR_ID); i++) {
+    const message = {
+      id: i+MIN_AVATAR_ID,
+      avatar: `img/avatar-${getRandomInteger(MIN_AVATAR_ID,MAX_AVATAR_ID)}.svg`,
+      message: MESSAGES[getRandomInteger(ANY_START_ZERO, MESSAGES.length-1)],
+      name: NAMES[getRandomInteger(ANY_START_ZERO, NAMES.length-1)]
+    };
+    messages.push(message);
+  }
+  return messages;
+};
+
 const createMiniaturesData = () => {
   const cards = [];
   for (let i = FIRST_ID; i <= AMOUNT_OF_CARDS; i++) {
@@ -19,12 +33,7 @@ const createMiniaturesData = () => {
       url: `photos/${i}.jpg`,
       description: `description #${i}`,
       likes: getRandomInteger(MIN_LIKES, MAX_LIKES),
-      comments: {
-        id: i+AMOUNT_OF_CARDS,
-        avatar: `img/avatar-${getRandomInteger(MIN_AVATAR_ID,MAX_AVATAR_ID)}.svg`,
-        message: MESSAGES[getRandomInteger(ANY_START_ZERO, MESSAGES.length-1)],
-        name: NAMES[getRandomInteger(ANY_START_ZERO, NAMES.length-1)]
-      }
+      comments: createMessages()
     };
     cards.push(card);
   }
