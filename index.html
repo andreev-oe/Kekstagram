@@ -86,7 +86,6 @@
                       <input type="radio" class="effects__radio  visually-hidden" name="effect" id="effect-sepia" value="sepia">
                       <label for="effect-sepia" class="effects__label">
                         <span class="effects__preview  effects__preview--sepia">Превью эффекта Сепия</span>
-                        <span class="effects__preview  effects__preview--sepia">Превью эффекта Сепия</span>
                         Сепия
                       </label>
                     </li>
@@ -116,10 +115,10 @@
 
                 <!-- Добавление хэш-тегов и комментария к изображению -->
                 <fieldset class="img-upload__text text">
-                  <div class="img-upload__field-wrapper">
+                  <div class="img-upload__field-wrapper js-validation">
                     <input type="text" class="text__hashtags" name="hashtags" placeholder="#ХэшТег">
                   </div>
-                  <div class="img-upload__field-wrapper">
+                  <div class="img-upload__field-wrapper js-validation">
                     <textarea
                       class="text__description"
                       name="description"
@@ -238,6 +237,7 @@
     <div class="img-upload__message  img-upload__message--loading">Загружаем...</div>
   </template>
 
-  ,<script type="module" src="./js/main.js"></script>
+  <script src="./pristine/pristine.min.js"></script>
+  <script type="module" src="./js/main.js"></script>
 </body>
 </html>

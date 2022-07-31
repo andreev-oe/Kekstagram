@@ -1408,3 +1408,9 @@ main {
 .hidden {
   display: none;
 }
+.js-validation-error-text {
+  color: #fa2d5c;
+  font-size: 16px;
+  text-transform: lowercase;
+  margin-bottom: 20px;
+}
