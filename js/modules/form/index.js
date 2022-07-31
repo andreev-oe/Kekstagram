@@ -4,7 +4,8 @@ const bodyElement = document.querySelector('body');
 const uploadCancelElement = document.querySelector('#upload-cancel');
 const imageUploadWrapperElement = document.querySelector('.img-upload__wrapper');
 const formInputElements = imageUploadWrapperElement.querySelectorAll('input, textarea');
-const scaleControlValue = imageUploadWrapperElement.querySelector('.scale__control--value');
+const scaleControlValueElement = imageUploadWrapperElement.querySelector('.scale__control--value');
+const textDescriptionElement = imageUploadWrapperElement.querySelector('.text__description');
 
 const clearUploadForm = () => {
   for (const field of formInputElements) {
@@ -13,7 +14,7 @@ const clearUploadForm = () => {
       field.value = '';
     }
   }
-  scaleControlValue.value = '55%';
+  scaleControlValueElement.value = '55%';
 };
 
 const onUploadFormChange = () => {
@@ -27,8 +28,10 @@ const onUploadFormCancelClick = () => {
   clearUploadForm();
 };
 
-const onBodyEscapeKeydown = (evtKey) => {
-  if (evtKey.key === 'Escape') {
+const onBodyEscapeKeydown = (evt) => {
+  if (textDescriptionElement === document.activeElement) {
+    evt.stopPropagation();
+  } else if (evt.key === 'Escape') {
     bodyElement.classList.remove('modal-open');
     formUploadOverlayElement.classList.add('hidden');
     clearUploadForm();
