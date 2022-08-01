@@ -12,7 +12,7 @@ import {
   commentsCountElement,
   socialCaptionElement,
   socialCommentsElement,
-  socialCommentCountElement,
+  socialCommentIncrementElement,
   commentsLoaderElement,
   pictureCancelButtonElement,
 } from './domElements.js';
@@ -22,23 +22,30 @@ import {
 } from './eventListeners.js';
 
 const createComments = (photo) => {
+  let incrementLoadedComments = 0;
+  const commentsAmout = photo.comments.length;
   socialCommentsElement.textContent = '';
-  photo.comments.forEach((element) => {
+  for (let i =0; i < 5; i++) {
     const comment = document.createElement('li');
     const image = document.createElement('img');
     const paragraph = document.createElement('p');
     comment.classList.add('social__comment');
     image.classList.add('social__picture');
-    image.src = element.avatar;
-    image.alt = element.name;
+    image.src = photo.comments[i].avatar;
+    image.alt = photo.comments[i].name;
     image.style.width = IMAGE_WIDTH;
     image.style.height = IMAGE_HEIGHT;
     paragraph.classList.add('social__text');
-    paragraph.textContent = element.message;
+    paragraph.textContent = photo.comments[i].message;
     comment.append(image);
     comment.append(paragraph);
     socialCommentsElement.append(comment);
-  });
+    incrementLoadedComments++;
+  }
+  if (incrementLoadedComments === commentsAmout) {
+    commentsLoaderElement.classList.add('hidden');
+  }
+  socialCommentIncrementElement.textContent = `${incrementLoadedComments}`;
 };
 
 const showBigPicture = (evt) => {
@@ -46,8 +53,6 @@ const showBigPicture = (evt) => {
     bigPictureImgElement.src = miniatures[evt.target.dataset.photoId - ARRAY_LENGTH_OFFSET].url;
     likesCountElement.textContent = `${miniatures[evt.target.dataset.photoId - ARRAY_LENGTH_OFFSET].likes}`;
     commentsCountElement.textContent = `${miniatures[evt.target.dataset.photoId - ARRAY_LENGTH_OFFSET].comments.length}`;
-    socialCommentCountElement.classList.add('hidden');
-    commentsLoaderElement.classList.add('hidden');
     socialCaptionElement.textContent = miniatures[evt.target.dataset.photoId - ARRAY_LENGTH_OFFSET].description;
     createComments(miniatures[evt.target.dataset.photoId - ARRAY_LENGTH_OFFSET]);
     bigPictureElement.classList.remove('hidden');
@@ -55,6 +60,9 @@ const showBigPicture = (evt) => {
     pictureCancelButtonElement.addEventListener('click', onBigPictureCloseButtonClick);
     bodyElement.addEventListener('keydown',onBodyEscapeKeydown);
   }
+  commentsLoaderElement.addEventListener('click', () => {
+    createComments(miniatures[evt.target.dataset.photoId - ARRAY_LENGTH_OFFSET]);
+  });
 };
 
 export {showBigPicture};
