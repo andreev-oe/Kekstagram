@@ -21,7 +21,9 @@ import {
   onBodyEscapeKeydown,
 } from './eventListeners.js';
 
-const createComments = (photo, incrementValue = 0) => {
+let incrementValue = 0;
+
+const createComments = (photo) => {
   const commentsAmout = photo.comments.length;
   for (let i = incrementValue; i < 5 + incrementValue; i++) {
     if (i === commentsAmout) {
@@ -42,33 +44,35 @@ const createComments = (photo, incrementValue = 0) => {
     comment.append(paragraph);
     socialCommentsElement.append(comment);
   }
-  const addedComments = incrementValue+5;
+  incrementValue+=5;
+  const addedComments = incrementValue;
   if (addedComments === commentsAmout) {
     commentsLoaderElement.classList.add('hidden');
   }
   socialCommentIncrementElement.textContent = `${addedComments}`;
+
 };
 
-const addNextComments = (evt) =>{
-  let incrementValue = 0;
-  incrementValue+=5;
-  createComments(miniatures[evt.target.dataset.photoId - ARRAY_LENGTH_OFFSET], incrementValue);
-};
+const addNextComments = (evt) => createComments(miniatures[evt.target.dataset.photoId - ARRAY_LENGTH_OFFSET]);
 
 const showBigPicture = (evt) => {
   if  (evt.target.nodeName === 'IMG') {
+    incrementValue = 0;
+    const photo = miniatures[evt.target.dataset.photoId - ARRAY_LENGTH_OFFSET];
+    const addNextCommentsInstance = () => addNextComments(evt);
+    commentsLoaderElement.removeEventListener('click', addNextCommentsInstance);
+    socialCommentIncrementElement.textContent = '';
     socialCommentsElement.textContent = '';
-    bigPictureImgElement.src = miniatures[evt.target.dataset.photoId - ARRAY_LENGTH_OFFSET].url;
-    likesCountElement.textContent = `${miniatures[evt.target.dataset.photoId - ARRAY_LENGTH_OFFSET].likes}`;
-    commentsCountElement.textContent = `${miniatures[evt.target.dataset.photoId - ARRAY_LENGTH_OFFSET].comments.length}`;
-    socialCaptionElement.textContent = miniatures[evt.target.dataset.photoId - ARRAY_LENGTH_OFFSET].description;
+    bigPictureImgElement.src = photo.url;
+    likesCountElement.textContent = `${photo.likes}`;
+    commentsCountElement.textContent = `${photo.comments.length}`;
+    socialCaptionElement.textContent = photo.description;
     commentsLoaderElement.classList.remove('hidden');
-    createComments(miniatures[evt.target.dataset.photoId - ARRAY_LENGTH_OFFSET]);
+    createComments(photo);
     bigPictureElement.classList.remove('hidden');
     bodyElement.classList.add('modal-open');
     pictureCancelButtonElement.addEventListener('click', onBigPictureCloseButtonClick);
     bodyElement.addEventListener('keydown',onBodyEscapeKeydown);
-    const addNextCommentsInstance = () => addNextComments(evt);
     commentsLoaderElement.addEventListener('click', addNextCommentsInstance);
   }
 };
