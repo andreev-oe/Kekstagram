@@ -1,7 +1,7 @@
 import {getRandomInteger} from '../utilities/index.js';
 import {
   AMOUNT_OF_CARDS,
-  ANY_START_ZERO,
+  ANY_ZERO,
   MIN_LIKES,
   MAX_LIKES,
   MIN_AVATAR_ID,
@@ -16,8 +16,8 @@ const createMessages = () => {
     const message = {
       id: i,
       avatar: `img/avatar-${getRandomInteger(MIN_AVATAR_ID,MAX_AVATAR_ID)}.svg`,
-      message: MESSAGES[getRandomInteger(ANY_START_ZERO, MESSAGES.length-1)],
-      name: NAMES[getRandomInteger(ANY_START_ZERO, NAMES.length-1)]
+      message: MESSAGES[getRandomInteger(ANY_ZERO, MESSAGES.length-1)],
+      name: NAMES[getRandomInteger(ANY_ZERO, NAMES.length-1)]
     };
     messages.push(message);
   }
