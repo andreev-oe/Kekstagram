@@ -1,5 +1,5 @@
 const AMOUNT_OF_CARDS = 25;
-const ANY_START_ZERO = 0;
+const ANY_ZERO = 0;
 const MIN_LIKES = 15;
 const MAX_LIKES = 200;
 const MIN_AVATAR_ID = 1;
@@ -29,7 +29,7 @@ const NAMES = [
 
 export {
   AMOUNT_OF_CARDS,
-  ANY_START_ZERO,
+  ANY_ZERO,
   MIN_LIKES,
   MAX_LIKES,
   MIN_AVATAR_ID,
