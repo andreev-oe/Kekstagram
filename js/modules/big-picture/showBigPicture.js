@@ -62,7 +62,7 @@ const createComments = (photo) => {
 };
 
 const showBigPicture = (evt) => {
-  if  (evt.target.nodeName === 'IMG') {
+  if  (evt.target.nodeName === 'IMG' && evt.target.dataset.photoId) {
     incrementValue = 0;
     const photo = miniatures[evt.target.dataset.photoId - ARRAY_LENGTH_OFFSET];
     socialCommentIncrementElement.textContent = '';
