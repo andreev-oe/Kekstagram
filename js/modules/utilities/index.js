@@ -9,7 +9,25 @@ const getRandomInteger = (scaleLow, scaleHigh) => {
 
 const checkStringLength = (string, length) => string.length <= length;
 
+const showOffersLoadErrorMessage = () => {
+  const body = document.body;
+  const mapLoadFailedMessage = document.createElement('div');
+  mapLoadFailedMessage.textContent = 'Загрузка фотографий не удалась, попробуйте обновить страницу';
+  mapLoadFailedMessage.style.position = 'absolute';
+  mapLoadFailedMessage.style.zIndex = '1000';
+  mapLoadFailedMessage.style.left = '0';
+  mapLoadFailedMessage.style.top = '0';
+  mapLoadFailedMessage.style.width = '100%';
+  mapLoadFailedMessage.style.padding = '13px 0 13px 0';
+  mapLoadFailedMessage.style.fontSize = '20px';
+  mapLoadFailedMessage.style.color = 'white';
+  mapLoadFailedMessage.style.backgroundColor = 'red';
+  mapLoadFailedMessage.style.textAlign = 'center';
+  body.prepend(mapLoadFailedMessage);
+};
+
 export {
   getRandomInteger,
   checkStringLength,
+  showOffersLoadErrorMessage,
 };

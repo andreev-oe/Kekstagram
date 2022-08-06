@@ -9,13 +9,21 @@ import {
   textDescriptionElement,
   hashTagInputElement,
 } from './domElements.js';
+import {
+  imagePreviewElement,
+  sliderElement,
+} from '../photo-effects/domElements.js';
 
 const clearUploadForm = () => {
+  imagePreviewElement.style = '';
+  sliderElement.classList.add('hidden');
   for (const field of formInputElements) {
-    field.checked = field.value === 'none';
-    if (field.type !== 'radio') {
+    if (field.type === 'radio') {
+      field.checked = field.value === 'none';
+    } else {
       field.value = '';
     }
+
   }
   scaleControlValueElement.value = DEFAULT_PHOTO_ZOOM;
 };

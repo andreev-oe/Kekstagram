@@ -60,10 +60,11 @@ const createComments = (photo) => {
   socialCommentIncrementElement.textContent = `${incrementValue}`;
 };
 
-const showBigPicture = (evt) => {
-  photoData.then((miniatures) => {
-    if  (evt.target.nodeName === 'IMG' && evt.target.dataset.photoId) {
+const showBigPicture = async (evt) => {
+  if  (evt.target.nodeName === 'IMG' && evt.target.dataset.photoId) {
+    try {
       incrementValue = 0;
+      const miniatures = await photoData;
       const photo = miniatures[evt.target.dataset.photoId];
       socialCommentIncrementElement.textContent = '';
       socialCommentsElement.textContent = '';
@@ -78,8 +79,10 @@ const showBigPicture = (evt) => {
       bodyElement.classList.add('modal-open');
       pictureCancelButtonElement.addEventListener('click', onBigPictureCloseButtonClick);
       bodyElement.addEventListener('keydown',onBodyEscapeKeydown);
+    } catch (e) {
+      throw new Error(e);
     }
-  });
+  }
 };
 
 export {

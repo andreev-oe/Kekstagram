@@ -17,9 +17,14 @@ const onBodyEscapeKeydown = (evtKey) => {
   }
 };
 
-const onShowMoreCommentsButtonClick = (evt) => {
+const onShowMoreCommentsButtonClick = async (evt) => {
   const image = evt.target.parentNode.parentNode.querySelector('img');
-  return photoData.then((miniatures) => createComments(miniatures[image.dataset.photoId])) ;
+  try {
+    const miniatures = await photoData;
+    return createComments(miniatures[image.dataset.photoId]);
+  } catch (e) {
+    throw new Error(e);
+  }
 };
 
 export {

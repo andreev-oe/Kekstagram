@@ -1,5 +1,5 @@
 const MAX_HASH_TAGS_AMOUNT = 5;
-const DEFAULT_PHOTO_ZOOM = '55%';
+const DEFAULT_PHOTO_ZOOM = '100%';
 const PRISTINE_CONFIG = {
   classTo: 'js-validation',
   errorTextParent: 'js-validation',
