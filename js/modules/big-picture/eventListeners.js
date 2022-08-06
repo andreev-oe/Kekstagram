@@ -2,8 +2,7 @@ import {
   bodyElement,
   bigPictureElement,
 } from './domElements.js';
-import {miniatures} from '../create-miniatures/index.js';
-import {ARRAY_LENGTH_OFFSET} from './constants.js';
+import {photoData} from '../create-miniatures/index.js';
 import {createComments} from './showBigPicture.js';
 
 const onBigPictureCloseButtonClick = () => {
@@ -20,7 +19,7 @@ const onBodyEscapeKeydown = (evtKey) => {
 
 const onShowMoreCommentsButtonClick = (evt) => {
   const image = evt.target.parentNode.parentNode.querySelector('img');
-  return createComments(miniatures[image.dataset.photoId - ARRAY_LENGTH_OFFSET]);
+  return photoData.then((miniatures) => createComments(miniatures[image.dataset.photoId])) ;
 };
 
 export {

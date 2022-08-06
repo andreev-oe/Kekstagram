@@ -1,8 +1,7 @@
-import {miniatures} from '../create-miniatures/index.js';
+import {photoData} from '../create-miniatures/index.js';
 import {
   IMAGE_WIDTH,
   IMAGE_HEIGHT,
-  ARRAY_LENGTH_OFFSET,
   COMMENTS_PORTION,
 } from './constants.js';
 import {
@@ -62,23 +61,25 @@ const createComments = (photo) => {
 };
 
 const showBigPicture = (evt) => {
-  if  (evt.target.nodeName === 'IMG' && evt.target.dataset.photoId) {
-    incrementValue = 0;
-    const photo = miniatures[evt.target.dataset.photoId - ARRAY_LENGTH_OFFSET];
-    socialCommentIncrementElement.textContent = '';
-    socialCommentsElement.textContent = '';
-    bigPictureImgElement.src = photo.url;
-    bigPictureImgElement.dataset.photoId = evt.target.dataset.photoId;
-    likesCountElement.textContent = `${photo.likes}`;
-    commentsCountElement.textContent = `${photo.comments.length}`;
-    socialCaptionElement.textContent = photo.description;
-    commentsLoaderElement.classList.remove('hidden');
-    createComments(photo);
-    bigPictureElement.classList.remove('hidden');
-    bodyElement.classList.add('modal-open');
-    pictureCancelButtonElement.addEventListener('click', onBigPictureCloseButtonClick);
-    bodyElement.addEventListener('keydown',onBodyEscapeKeydown);
-  }
+  photoData.then((miniatures) => {
+    if  (evt.target.nodeName === 'IMG' && evt.target.dataset.photoId) {
+      incrementValue = 0;
+      const photo = miniatures[evt.target.dataset.photoId];
+      socialCommentIncrementElement.textContent = '';
+      socialCommentsElement.textContent = '';
+      bigPictureImgElement.src = photo.url;
+      bigPictureImgElement.dataset.photoId = evt.target.dataset.photoId;
+      likesCountElement.textContent = `${photo.likes}`;
+      commentsCountElement.textContent = `${photo.comments.length}`;
+      socialCaptionElement.textContent = photo.description;
+      commentsLoaderElement.classList.remove('hidden');
+      createComments(photo);
+      bigPictureElement.classList.remove('hidden');
+      bodyElement.classList.add('modal-open');
+      pictureCancelButtonElement.addEventListener('click', onBigPictureCloseButtonClick);
+      bodyElement.addEventListener('keydown',onBodyEscapeKeydown);
+    }
+  });
 };
 
 export {
