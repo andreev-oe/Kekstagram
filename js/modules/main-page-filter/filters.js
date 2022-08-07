@@ -3,7 +3,7 @@ import {getRandomInteger} from '../utilities/index.js';
 import {
   ANY_ZERO,
   ARRAY_LENGTH_OFFSET,
-  MIN_RANDOM_PHOTO_AMOUT,
+  RANDOM_PHOTO_AMOUT,
 } from './constants.js';
 
 const filterDefault = async () => await photoData;
@@ -28,7 +28,7 @@ const filterMostCommentedPhoto = async () => {
 const filterRandomPhoto = async () => {
   const photos = await photoData;
   const filteredPhotos = [];
-  for (let i = ANY_ZERO; i < getRandomInteger(MIN_RANDOM_PHOTO_AMOUT, photos.length - ARRAY_LENGTH_OFFSET); i++) {
+  while(filteredPhotos.length < RANDOM_PHOTO_AMOUT) {
     const randomPhoto = photos[getRandomInteger(ANY_ZERO, photos.length - ARRAY_LENGTH_OFFSET)];
     if (filteredPhotos.every((photo) => photo.id !== randomPhoto.id)) {
       filteredPhotos.push(randomPhoto);
