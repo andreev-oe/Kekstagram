@@ -11,13 +11,17 @@ const uploadFormElement =imageUploadWrapperElement.querySelector('#upload-select
 const uploadButtonElement =imageUploadWrapperElement.querySelector('#upload-submit');
 const successMessageTemplateElement = document.querySelector('#success').content.cloneNode(true);
 const successMessageElement = successMessageTemplateElement.querySelector('.success');
+const successDivMessageElement = successMessageTemplateElement.querySelector('.success__inner');
+const successButtonElement = successMessageTemplateElement.querySelector('.success__button');
 const errorMessageTemplateElement = document.querySelector('#error').content.cloneNode(true);
 const errorMessageElement = errorMessageTemplateElement.querySelector('.error');
+const errorDivMessageElement = errorMessageTemplateElement.querySelector('.error__inner');
+const errorButtonElement = errorMessageTemplateElement.querySelector('.error__button');
 
 successMessageElement.classList.add('hidden');
 errorMessageElement.classList.add('hidden');
-bodyElement.append(successMessageElement);
-bodyElement.append(errorMessageElement);
+bodyElement.prepend(successMessageElement);
+bodyElement.prepend(errorMessageElement);
 
 export {
   formUploadInputElement,
@@ -32,4 +36,8 @@ export {
   uploadButtonElement,
   successMessageElement,
   errorMessageElement,
+  successButtonElement,
+  errorButtonElement,
+  errorDivMessageElement,
+  successDivMessageElement,
 };

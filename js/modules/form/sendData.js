@@ -5,6 +5,7 @@ import {
   uploadFormElement,
   successMessageElement,
   errorMessageElement,
+  formUploadInputElement,
 } from './domElements.js';
 import {sendDataToServer} from '../exchange-data-with-server/index.js';
 import {pristine} from './validation.js';
@@ -18,14 +19,17 @@ const handleSendData = async () => {
     bodyElement.classList.remove('modal-open');
     formUploadOverlayElement.classList.add('hidden');
     successMessageElement.classList.remove('hidden');
-    clearUploadForm();
     uploadButtonElement.disabled = false;
+    clearUploadForm();
   } catch (e) {
     bodyElement.classList.remove('modal-open');
     formUploadOverlayElement.classList.add('hidden');
     errorMessageElement.classList.remove('hidden');
-    clearUploadForm();
     uploadButtonElement.disabled = false;
+    formUploadInputElement.value = '';
+    if (errorMessageElement.classList.contains('hidden')) {
+      clearUploadForm();
+    }
   }
 };
 

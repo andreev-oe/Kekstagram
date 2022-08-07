@@ -3,7 +3,8 @@ import {
   sliderElement,
 } from '../photo-effects/domElements.js';
 import {
-  formInputElements, formUploadInputElement,
+  formInputElements,
+  formUploadInputElement,
   scaleControlValueElement,
 } from './domElements.js';
 import {DEFAULT_PHOTO_ZOOM} from './constants.js';
