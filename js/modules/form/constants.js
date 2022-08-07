@@ -10,10 +10,12 @@ const ErrorMessages = {
   uniqueHashTagsError: 'Хэш-теги должны быть уникальными',
   hashTagSymbolsError: 'Хэш-теги должны начитаться с символа #, быть не длиннее 20 символов и не содержать спецсимволов',
 };
+const IMAGE_FILE_TYPES = ['gif', 'jpg', 'jpeg', 'png'];
 
 export {
   MAX_HASH_TAGS_AMOUNT,
   DEFAULT_PHOTO_ZOOM,
   PRISTINE_CONFIG,
   ErrorMessages,
+  IMAGE_FILE_TYPES,
 };

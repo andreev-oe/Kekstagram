@@ -11,8 +11,10 @@ import {
   errorButtonElement,
   errorDivMessageElement,
   successDivMessageElement,
+  uploadImagePreviewElement,
 } from './domElements.js';
 import {clearUploadForm} from './clearUploadForm.js';
+import {IMAGE_FILE_TYPES} from './constants.js';
 
 const onUploadFormChange = () => {
   bodyElement.classList.add('modal-open');
@@ -20,7 +22,7 @@ const onUploadFormChange = () => {
 };
 
 const onUploadFormCancelClick = () => {
-  if(!errorMessageElement.classList.contains('hidden')) {
+  if(errorMessageElement.classList.contains('hidden')) {
     bodyElement.classList.remove('modal-open');
     formUploadOverlayElement.classList.add('hidden');
     clearUploadForm();
@@ -63,6 +65,14 @@ const onErrorButtonClick = (evt) => {
   }
 };
 
+formUploadInputElement.addEventListener('change', () => {
+  const uploadPhoto = formUploadInputElement.files[0];
+  const uploadPhotoName = uploadPhoto.name.toLowerCase();
+  const matchesFileType = IMAGE_FILE_TYPES.some((type) => uploadPhotoName.endsWith(type));
+  if (matchesFileType) {
+    uploadImagePreviewElement.src = URL.createObjectURL(uploadPhoto);
+  }
+});
 bodyElement.addEventListener('keydown', onBodyEscapeKeydown);
 formUploadInputElement.addEventListener('change', onUploadFormChange);
 uploadCancelElement.addEventListener('click', onUploadFormCancelClick);

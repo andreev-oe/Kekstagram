@@ -1,5 +1,6 @@
 const formUploadInputElement = document.querySelector('#upload-file');
 const formUploadOverlayElement = document.querySelector('.img-upload__overlay');
+const uploadImagePreviewElement = formUploadOverlayElement.querySelector('img');
 const bodyElement = document.querySelector('body');
 const uploadCancelElement = document.querySelector('#upload-cancel');
 const imageUploadWrapperElement = document.querySelector('.img-upload__wrapper');
@@ -21,6 +22,7 @@ const errorButtonElement = errorMessageTemplateElement.querySelector('.error__bu
 export {
   formUploadInputElement,
   formUploadOverlayElement,
+  uploadImagePreviewElement,
   bodyElement,
   uploadCancelElement,
   formInputElements,
@@ -32,7 +34,7 @@ export {
   successMessageElement,
   errorMessageElement,
   successButtonElement,
+  successDivMessageElement,
   errorButtonElement,
   errorDivMessageElement,
-  successDivMessageElement,
 };
