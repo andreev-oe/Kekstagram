@@ -1,3 +1,5 @@
+import {photoFilterPanelElement} from '../main-page-filter/domElements.js';
+
 const createMiniatures = async (data) => {
   try {
     const miniatures = await data;
@@ -13,8 +15,9 @@ const createMiniatures = async (data) => {
       pictureElement.dataset.photoId = miniature.id;
       picturesElement.append(pictureTemplateElement);
     });
+    photoFilterPanelElement.classList.remove('img-filters--inactive');
   } catch (e) {
-    throw new Error('Нет данных для обработки');
+    throw new Error(`Нет данных для обработки, текст ошибки: ${e}`);
   }
 };
 

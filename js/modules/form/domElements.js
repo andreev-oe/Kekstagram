@@ -18,11 +18,6 @@ const errorMessageElement = errorMessageTemplateElement.querySelector('.error');
 const errorDivMessageElement = errorMessageTemplateElement.querySelector('.error__inner');
 const errorButtonElement = errorMessageTemplateElement.querySelector('.error__button');
 
-successMessageElement.classList.add('hidden');
-errorMessageElement.classList.add('hidden');
-bodyElement.prepend(successMessageElement);
-bodyElement.prepend(errorMessageElement);
-
 export {
   formUploadInputElement,
   formUploadOverlayElement,

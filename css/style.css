@@ -1414,3 +1414,16 @@ main {
   text-transform: lowercase;
   margin-bottom: 20px;
 }
+
+.load-error-message {
+  position: absolute;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 13px 0 13px 0;
+  font-size: 20px;
+  color: white;
+  background-color: red;
+  text-align: center;
+}

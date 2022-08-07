@@ -15,7 +15,10 @@ const handleSendData = async () => {
   const formData = new FormData(uploadFormElement);
   uploadButtonElement.disabled = true;
   try {
-    await sendDataToServer(formData);
+    const response = await sendDataToServer(formData);
+    if (!response.ok) {
+      throw new Error (`Ошибка при отправке данных, статус ${response.status} - ${response.statusText}`);
+    }
     bodyElement.classList.remove('modal-open');
     formUploadOverlayElement.classList.add('hidden');
     successMessageElement.classList.remove('hidden');

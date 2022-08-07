@@ -8,6 +8,9 @@ import {showOffersLoadErrorMessage} from '../utilities/index.js';
 const getDataFromServer = async () => {
   try {
     const response = await fetch(GET_ADDRESS);
+    if (!response.ok) {
+      throw new Error (`Ошибка при получении данных, статус ${response.status} - ${response.statusText}`);
+    }
     return await response.json();
   } catch (e) {
     showOffersLoadErrorMessage();
