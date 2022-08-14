@@ -6,7 +6,7 @@ import {
 import {
   hashTagInputElement,
   uploadFormElement,
-} from './domElements.js';
+} from './dom-elements.js';
 
 const hashTagRegExp = /^#[ёЁа-яА-Яa-zA-Z0-9]{1,19}$/;
 

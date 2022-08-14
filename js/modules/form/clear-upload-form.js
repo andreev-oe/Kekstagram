@@ -1,12 +1,12 @@
 import {
   imagePreviewElement,
   sliderElement,
-} from '../photo-effects/domElements.js';
+} from '../photo-effects/dom-elements.js';
 import {
   formInputElements,
   formUploadInputElement,
   scaleControlValueElement,
-} from './domElements.js';
+} from './dom-elements.js';
 import {DEFAULT_PHOTO_ZOOM} from './constants.js';
 
 const clearUploadForm = () => {

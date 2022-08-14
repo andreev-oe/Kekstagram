@@ -1,2 +1,2 @@
 import './filters.js';
-import './EventListeners.js';
+import './event-listeners.js';

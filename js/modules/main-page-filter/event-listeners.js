@@ -2,8 +2,8 @@ import {
   defaultFilterButtonElement,
   mostCommentedFilterButtonElement,
   randomFilterButtonElement
-} from './domElements.js';
-import {createMiniatures} from '../create-miniatures/createMiniatures.js';
+} from './dom-elements.js';
+import {createMiniatures} from '../create-miniatures/create-miniatures.js';
 import {filterDefault, filterMostCommentedPhoto, filterRandomPhoto} from './filters.js';
 import {debounce} from '../utilities/index.js';
 

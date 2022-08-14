@@ -12,8 +12,8 @@ import {
   errorDivMessageElement,
   successDivMessageElement,
   uploadImagePreviewElement,
-} from './domElements.js';
-import {clearUploadForm} from './clearUploadForm.js';
+} from './dom-elements.js';
+import {clearUploadForm} from './clear-upload-form.js';
 import {IMAGE_FILE_TYPES} from './constants.js';
 
 const onUploadFormChange = () => {

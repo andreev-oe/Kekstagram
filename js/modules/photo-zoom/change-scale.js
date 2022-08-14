@@ -3,7 +3,7 @@ import {
   zoomIn,
   scaleValueElement,
   imagePreviewElement,
-} from './domElements.js';
+} from './dom-elements.js';
 import {SCALE_STEP} from './constants.js';
 
 let scaleValue = 0;

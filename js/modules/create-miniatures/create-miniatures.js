@@ -1,4 +1,4 @@
-import {photoFilterPanelElement} from '../main-page-filter/domElements.js';
+import {photoFilterPanelElement} from '../main-page-filter/dom-elements.js';
 
 const createMiniatures = async (data) => {
   try {

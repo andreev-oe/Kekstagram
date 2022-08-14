@@ -6,10 +6,10 @@ import {
   successMessageElement,
   errorMessageElement,
   formUploadInputElement,
-} from './domElements.js';
+} from './dom-elements.js';
 import {sendDataToServer} from '../exchange-data-with-server/index.js';
 import {pristine} from './validation.js';
-import {clearUploadForm} from './clearUploadForm.js';
+import {clearUploadForm} from './clear-upload-form.js';
 
 const handleSendData = async () => {
   const formData = new FormData(uploadFormElement);

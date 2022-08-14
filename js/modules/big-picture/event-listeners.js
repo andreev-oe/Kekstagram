@@ -1,9 +1,9 @@
 import {
   bodyElement,
   bigPictureElement,
-} from './domElements.js';
+} from './dom-elements.js';
 import {photoData} from '../create-miniatures/index.js';
-import {createComments} from './showBigPicture.js';
+import {createComments} from './show-big-picture.js';
 
 const onBigPictureCloseButtonClick = () => {
   bigPictureElement.classList.add('hidden');

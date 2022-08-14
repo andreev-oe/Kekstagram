@@ -3,10 +3,10 @@ import {
   bodyElement,
   errorMessageElement,
   successMessageElement,
-  uploadFormElement} from './domElements.js';
-import './eventListeners.js';
+  uploadFormElement} from './dom-elements.js';
+import './event-listeners.js';
 import {pristine} from './validation.js';
-import './sendData.js';
+import './send-data.js';
 
 successMessageElement.classList.add('hidden');
 errorMessageElement.classList.add('hidden');

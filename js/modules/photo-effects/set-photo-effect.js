@@ -2,7 +2,7 @@ import {
   sliderElement,
   imagePreviewElement,
   sliderValueElement,
-} from './domElements.js';
+} from './dom-elements.js';
 import {
   SLIDER_CONFIGS,
   EFFECTS,

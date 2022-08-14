@@ -1,11 +1,11 @@
 import {
   zoomOut,
   zoomIn,
-} from './domElements.js';
+} from './dom-elements.js';
 import {
   onZoomOutClick,
   onZoomInClick,
-} from './eventListeners.js';
+} from './event-listeners.js';
 
 zoomOut.addEventListener('click', onZoomOutClick);
 zoomIn.addEventListener('click', onZoomInClick);

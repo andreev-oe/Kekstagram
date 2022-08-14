@@ -15,11 +15,11 @@ import {
   socialCommentIncrementElement,
   commentsLoaderElement,
   pictureCancelButtonElement,
-} from './domElements.js';
+} from './dom-elements.js';
 import {
   onBigPictureCloseButtonClick,
   onBodyEscapeKeydown,
-} from './eventListeners.js';
+} from './event-listeners.js';
 
 let incrementValue = 0;
 

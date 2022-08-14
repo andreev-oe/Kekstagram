@@ -1,4 +1,4 @@
-import {changeScale} from './changeScale.js';
+import {changeScale} from './change-scale.js';
 
 const onZoomInClick = (evt) => changeScale(evt);
 const onZoomOutClick = (evt) => changeScale(evt);
